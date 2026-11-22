@@ -30,6 +30,9 @@ export default function Cierre() {
             NEXAPAY es una plataforma de simulación financiera con fondos ficticios. No requiere
             información bancaria real.
           </p>
+          <Link to="/privacidad" className={styles.enlace}>
+            Política de Privacidad
+          </Link>
           <small>© {anio} NEXAPAY · Proyecto académico</small>
         </div>
       </footer>

@@ -12,6 +12,7 @@ import Monedas from './pages/Monedas/Monedas'
 import Espacios from './pages/Espacios/Espacios'
 import Perfil from './pages/Perfil/Perfil'
 import NoEncontrada from './pages/NoEncontrada/NoEncontrada'
+import Privacidad from './pages/Privacidad/Privacidad'
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
               <Route path="/" element={<Landing />} />
               <Route path="/login" element={<Login />} />
               <Route path="/registro" element={<Registro />} />
+              <Route path="/privacidad" element={<Privacidad />} />
               <Route
                 path="/inicio"
                 element={

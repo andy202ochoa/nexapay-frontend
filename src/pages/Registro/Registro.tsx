@@ -110,7 +110,11 @@ export default function Registro() {
             onChange={(e) => setAcepta(e.target.checked)}
           />
           <span>
-            Acepto los Términos del Servicio y la Política de Privacidad, y reconozco que
+            Acepto los Términos del Servicio y la{' '}
+            <Link to="/privacidad" target="_blank" rel="noopener noreferrer">
+              Política de Privacidad
+            </Link>
+            , y reconozco que
             opero en un entorno de simulación ficticio con fondos de prueba.
           </span>
         </label>

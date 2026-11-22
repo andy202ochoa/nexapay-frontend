@@ -88,6 +88,10 @@
   max-width: 520px;
 }
 
+.enlace {
+  font-size: 13px;
+}
+
 .pieContenido small {
   font-size: 12px;
   color: var(--texto-suave);

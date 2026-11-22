@@ -1,0 +1,92 @@
+.pagina {
+  min-height: 100vh;
+  background: #fff;
+}
+
+/* ---------- Barra superior ---------- */
+.barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 32px;
+}
+
+.volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--texto);
+}
+
+.volver:hover {
+  background: #f1f5f9;
+}
+
+/* ---------- Contenido ---------- */
+.contenido {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 32px 72px;
+  color: var(--texto);
+  line-height: 1.65;
+}
+
+.contenido h1 {
+  font-size: 34px;
+  line-height: 1.2;
+}
+
+.fecha {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+
+.aviso {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border-radius: var(--radio);
+  background: #eef2ff;
+  border-left: 4px solid var(--violeta);
+  font-size: 15px;
+}
+
+.contenido section {
+  margin-top: 32px;
+}
+
+.contenido h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.contenido p,
+.contenido li {
+  font-size: 15px;
+  color: #334155;
+}
+
+.contenido ul {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contenido section p + ul,
+.contenido section ul + p {
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .barra { padding: 16px 20px; }
+  .contenido { padding: 16px 20px 56px; }
+  .contenido h1 { font-size: 26px; }
+}
