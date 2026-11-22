@@ -1,6 +1,10 @@
 # NexaPay Frontend
 
-Interfaz web de **NexaPay**, una billetera digital multimoneda (USD, EUR, COP, ARS) de simulación, con fondos ficticios. Este repositorio contiene el **frontend**; la API está en [`nexapay-backend`](https://github.com/lNexapay/nexapay-backend).
+Interfaz web de **NexaPay**, una billetera digital multimoneda (USD, EUR, COP, ARS) de simulación, con fondos ficticios. Este repositorio contiene el **frontend**; la API está en [`nexapay-backend`](https://github.com/andy202ochoa/nexapay-backend).
+
+🔗 **Demo:** https://nexapay-frontend-ten.vercel.app
+
+> **Proyecto en equipo.** NexaPay se desarrolló entre 4 personas en la organización [lNexapay](https://github.com/lNexapay). Este repositorio es mi copia personal, desplegada en mis propias cuentas para que siga disponible en mi portafolio. Ver [Créditos](#créditos).
 
 ## Qué incluye hoy
 
@@ -14,6 +18,7 @@ Interfaz web de **NexaPay**, una billetera digital multimoneda (USD, EUR, COP, A
 | **Monedas** | `/monedas` | Con sesión | Saldos y tasas de cambio, más una calculadora de equivalentes (sin comisión: no es tu saldo) |
 | **Mis espacios** | `/espacios` | Con sesión | Espacios de ahorro: crear, aportar y retirar, con meta opcional |
 | **Perfil** | `/perfil` | Con sesión | Datos del usuario y número de cuenta (para que otros te transfieran) |
+| **Privacidad** | `/privacidad` | Pública | Política de privacidad (qué datos se guardan y qué servicios externos se usan) |
 | **404** | cualquier otra | Pública | Página no encontrada |
 
 Las pantallas con sesión usan datos reales del backend. Además hay un **chat flotante con el asistente NEXAPAY AI**, que responde preguntas sobre la cuenta del usuario.
@@ -32,13 +37,13 @@ Las pantallas con sesión usan datos reales del backend. Además hay un **chat f
 
 - Node.js 22 (es la versión que usa el CI)
 - Git
-- El [backend](https://github.com/lNexapay/nexapay-backend) corriendo en local para iniciar sesión y operar
+- El [backend](https://github.com/andy202ochoa/nexapay-backend) corriendo en local para iniciar sesión y operar
 
 ## Inicio rápido
 
 ```bash
 # 1. Clonar e instalar
-git clone https://github.com/lNexapay/nexapay-frontend.git
+git clone https://github.com/andy202ochoa/nexapay-frontend.git
 cd nexapay-frontend
 npm install
 
@@ -56,7 +61,7 @@ Vite muestra la URL en la terminal (normalmente `http://localhost:5173`).
 
 ## Conectar con el backend
 
-1. Levanta el backend siguiendo su [README](https://github.com/lNexapay/nexapay-backend#readme) (queda en `http://localhost:3000`).
+1. Levanta el backend siguiendo su [README](https://github.com/andy202ochoa/nexapay-backend#readme) (queda en `http://localhost:3000`).
 2. Verifica que `.env.local` tenga:
 
 ```
@@ -69,7 +74,9 @@ Las peticiones usan `credentials: 'include'` porque el backend guarda el refresh
 
 ### En producción
 
-En el build de producción el frontend llama a rutas relativas (`/api/...`) y **Vercel las redirige al backend en Railway** mediante `vercel.json`. Así el navegador solo habla con un origen y la cookie de sesión funciona sin problemas de CORS. `VITE_API_URL` solo se usa en desarrollo; si cambia la URL del backend desplegado, hay que actualizar el destino en `vercel.json`.
+En el build de producción el frontend llama a rutas relativas (`/api/...`) y **Vercel las redirige al backend** (`https://nexapay-backend.vercel.app`, también en Vercel, con base de datos en Neon) mediante `vercel.json`. Así el navegador solo habla con un origen y la cookie de sesión funciona sin problemas de CORS. `VITE_API_URL` solo se usa en desarrollo; si cambia la URL del backend desplegado, hay que actualizar el destino en `vercel.json`.
+
+En Vercel, este proyecto solo necesita la variable `VITE_GOOGLE_CLIENT_ID`. Después de cambiarla hay que volver a desplegar, porque las variables `VITE_` se incluyen en el código al construir la app.
 
 ## Variables de entorno
 
@@ -96,7 +103,7 @@ src/
 ├── main.tsx            # Punto de entrada
 ├── App.tsx             # Rutas de la aplicación
 ├── pages/              # Una carpeta por pantalla: Landing, Login, Registro, Inicio,
-│                       # Historial, Monedas, Espacios, Perfil, NoEncontrada
+│                       # Historial, Monedas, Espacios, Perfil, Privacidad, NoEncontrada
 ├── components/         # Componentes reutilizables: layouts, Sidebar, MenuInferior, Modal,
 │                       # Operaciones (ingreso, conversión, transferencia), Chat, BotonGoogle...
 ├── context/            # UsuarioContext (sesión), OperacionesContext (modal de operaciones)
@@ -111,7 +118,7 @@ src/
 
 Cada componente y página lleva su propio archivo `.module.css`. La sesión se guarda en `localStorage` (si el usuario elige recordarla) o en `sessionStorage`, y las rutas privadas se protegen con `RutaProtegida`.
 
-## Cómo trabajamos
+## Cómo trabajamos (flujo del equipo)
 
 1. Crea una rama desde `main`: `feat/...`, `fix/...`, `docs/...`.
 2. Commits y título del PR con formato [Conventional Commits](https://www.conventionalcommits.org/): `feat: ...`, `fix: ...`, `docs: ...`. El CI rechaza los títulos que no lo cumplan.
@@ -130,3 +137,18 @@ Si el cambio es visual, adjunta una captura en el PR. No subas `.env` ni datos r
 - El proyecto aún no tiene pruebas automáticas: el CI solo ejecuta lint y build.
 - La URL del backend desplegado está escrita a mano en `vercel.json`.
 - Definir la licencia.
+
+## Créditos
+
+NexaPay fue un proyecto en equipo de 4 personas, organizado en [lNexapay](https://github.com/lNexapay) con ramas, Pull Requests revisados y CI.
+
+| Integrante | Área |
+|------------|------|
+| [@yahiralmendras22](https://github.com/yahiralmendras22) | Frontend |
+| [@lHakoo](https://github.com/lHakoo) | Frontend y backend |
+| [@octaviolanne-hue](https://github.com/octaviolanne-hue) | Backend |
+| [@andy202ochoa](https://github.com/andy202ochoa) | Backend |
+
+Repositorios originales: [lNexapay/nexapay-frontend](https://github.com/lNexapay/nexapay-frontend) · [lNexapay/nexapay-backend](https://github.com/lNexapay/nexapay-backend)
+
+**Mi aporte (Andy Ochoa):** trabajé en el backend que usa esta interfaz: saldos y monedas, operaciones y transferencias, comisiones (`GET /api/fees`, que este frontend usa para estimar el costo antes de convertir) y el asistente NEXAPAY AI que responde en el chat flotante. También desplegué esta copia en Vercel + Neon y agregué la página de privacidad. Detalle en el [README del backend](https://github.com/andy202ochoa/nexapay-backend#mi-rol-en-el-proyecto).
